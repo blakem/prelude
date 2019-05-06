@@ -1,1 +1,5 @@
 (find-file "/Users/blake/git/SwiftStack/ssman/manage.py")
+(find-file "/Users/blake/.elisp/biv.el")
+(find-file "/Users/blake/.elisp/zz.el")
+(find-file "/Users/blake/.emacs.d-preprelude/lisp/sa-code-navigation.el")
+(find-file (root "/ssman/app/middleware/session_interaction.py"))

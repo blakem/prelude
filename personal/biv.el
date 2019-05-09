@@ -26,10 +26,19 @@
   (delete-other-windows)
   )
 
+(defun biv-open-wishlist ()
+  (interactive)
+  (find-file (home "/.elisp/wishlist.el")))
 
+(defun biv-open-managepy ()
+  (interactive)
+  (find-file (gethash "managepy" bivHash)))
 
 (defun root (&rest path)
   (concat (getenv "root") (apply 'concat path)))
+
+(defun home (&rest path)
+  (concat (getenv "HOME") (apply 'concat path)))
 
 (defun biv-diff-left ()
   (interactive)
@@ -208,3 +217,17 @@
   (beginning-of-line)
   (if (not (looking-at "Index: ")) (search-backward-regexp "^Index: " nil t))
   (looking-at "Index: "))
+
+(defun goto-match-paren (arg)
+  "Go to the matching parenthesis if on parenthesis, otherwise insert %.
+vi style of % jumping to matching brace."
+  (interactive "p")
+  (cond ((looking-at "\\s\(") (forward-list 1) (backward-char 1))
+        ((looking-at "\\s\)") (forward-char 1) (backward-list 1))
+        (t (self-insert-command (or arg 1)))))
+
+(defun biv-kill-line-or-region ()
+  (interactive)
+  (if (use-region-p)
+      (kill-region (region-beginning) (region-end) t)
+    (kill-line)))

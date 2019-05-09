@@ -1,5 +1,3 @@
 ; set default window size
-(when window-system (set-frame-size (selected-frame) 100 80))
+(when window-system (set-frame-size (selected-frame) 110 90))
 
-; pick a default root
-(setenv "root" "/Users/blake/git/SwiftStack")

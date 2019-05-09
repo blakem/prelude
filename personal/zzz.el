@@ -1,4 +1,4 @@
-(find-file (gethash "managepy" bivHash)))
+(find-file (gethash "managepy" bivHash))
 (find-file (home "/.elisp/biv.el"))
 (find-file (home "/.elisp/zzz.el"))
 (find-file (home "/.elisp/keys.el"))

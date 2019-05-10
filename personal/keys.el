@@ -6,6 +6,7 @@
 (global-set-key [(super a) ?g ?f] 'biv-git-diff-full)
 (global-set-key [(super a) ?m ?a] 'biv-open-managepy)
 (global-set-key [(super a) ?o ?w] 'biv-open-wishlist)
+(global-set-key [(super a) ?s ?c] 'un-camelcase-word-at-point)
 
 (global-set-key (kbd "s-f") 'projectile-find-file)
 (global-set-key (kbd "C-k") 'biv-kill-line-or-region)

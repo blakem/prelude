@@ -24,3 +24,7 @@
 (global-set-key (kbd "\C-f") 'projectile-find-file)
 (global-set-key [f4] 'find-file-at-point)
 (global-set-key [(super f)] 'projectile-find-file)
+
+(global-set-key [f6] 'next-error-recenter)
+(global-set-key [(shift f6)] 'previous-error-recenter)
+(global-set-key [(control f6)] 'previous-error-recenter)

@@ -11,6 +11,7 @@
 (global-set-key (kbd "C-k") 'biv-kill-line-or-region)
 (global-set-key (kbd "s-1") 'delete-other-windows)
 (global-set-key (kbd "s-g") 'goto-line)
+(global-set-key (kbd "s-b") 'ace-window)
 (global-set-key (kbd "C-j") 'ibuffer)
 (global-set-key (kbd "<C-s-268632083>") 'projectile-grep)
 (global-set-key (quote [f10]) 'biv-toggle-pounds)

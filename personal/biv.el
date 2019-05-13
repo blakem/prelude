@@ -42,6 +42,7 @@
 
 (defun biv-diff-left ()
   (interactive)
+  (save-buffer)
   (biv-file-diff))
 
 (defun biv-file-diff ()
@@ -268,5 +269,10 @@ downcased, no preceding underscore.
                       (1+ (car bounds)) (cdr bounds))
       (downcase-region (car bounds) (cdr bounds)))))
 
+(defun biv-force-server-start ()
+    (interactive)
+    (progn
+      (server-force-delete)
+      (server-start)))
 
 

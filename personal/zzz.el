@@ -1,7 +1,7 @@
+(biv-force-server-start)
 (find-file-noselect (gethash "managepy" bivHash))
 (find-file-noselect (home "/.elisp/biv.el"))
 (find-file-noselect (home "/.elisp/zzz.el"))
 (find-file-noselect (home "/.elisp/keys.el"))
-(find-file-noselect (home "/.emacs.d-preprelude/lisp/sa-code-navigation.el"))
 (find-file-noselect (home "/.elisp/wishlist.el"))
 (find-file (gethash "firstfile" bivHash))

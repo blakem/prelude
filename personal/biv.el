@@ -214,6 +214,10 @@
   (if (eobp) (goto-char (point-min)))
   )
 
+(defun biv-insert-db ()
+  (interactive)
+  (insert "import pudb; pu.db"))
+
 (defun biv-goto-diff-index-line ()
   (beginning-of-line)
   (if (not (looking-at "Index: ")) (search-backward-regexp "^Index: " nil t))
@@ -275,4 +279,18 @@ downcased, no preceding underscore.
       (server-force-delete)
       (server-start)))
 
+(defun biv-apply-hunk ()
+  (interactive)
+  (diff-apply-hunk 'nil)
+  )
+
+(defun biv-revert-hunk ()
+  (interactive)
+  (diff-apply-hunk t)
+  )
+
+(defun biv-open-ssman-file (filename)
+  (interactive "sFilename: ")
+  (find-file (concat "/ssh:ssmanel7:" filename))
+  )
 

@@ -1,12 +1,16 @@
 (define-prefix-command 'sa-map)
 (global-set-key (kbd "s-a") 'sa-map)
 (global-set-key (kbd "s-x") 'sa-map)
+(global-set-key (kbd "C-q") 'sa-map)
 
 (global-set-key [(super a) ?g ?a] 'vc-annotate) ; sa-svn-annotate)
 (global-set-key [(super a) ?g ?f] 'biv-git-full-diff)
 (global-set-key [(super a) ?m ?a] 'biv-open-managepy)
 (global-set-key [(super a) ?o ?w] 'biv-open-wishlist)
 (global-set-key [(super a) ?s ?c] 'un-camelcase-word-at-point)
+(global-set-key [(super a) ?d ?b] 'biv-insert-db)
+(global-set-key [(super a) ?a ?h] 'biv-apply-hunk)
+(global-set-key [(super a) ?r ?h] 'biv-revert-hunk)
 
 (global-set-key (kbd "s-f") 'projectile-find-file)
 (global-set-key (kbd "C-k") 'biv-kill-line-or-region)
@@ -32,3 +36,4 @@
 (global-set-key [f6] 'next-error-recenter)
 (global-set-key [(shift f6)] 'previous-error-recenter)
 (global-set-key [(control f6)] 'previous-error-recenter)
+

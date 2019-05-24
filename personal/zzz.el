@@ -1,4 +1,4 @@
-(biv-force-server-start)
+(if (display-graphic-p) (biv-force-server-start))
 (find-file-noselect (gethash "managepy" bivHash))
 (find-file-noselect (home "/.elisp/biv.el"))
 (find-file-noselect (home "/.elisp/zzz.el"))

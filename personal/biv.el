@@ -302,3 +302,26 @@ downcased, no preceding underscore.
     (if (equal (current-buffer) scratch-buffer-name)
         (switch-to-buffer (other-buffer))
       (switch-to-buffer scratch-buffer-name (lisp-interaction-mode)))))
+
+(defun biv-findcode-run (findcode-command)
+  "Run a findcode command non-interactive"
+  (let ((compilation-buffer-name-function
+         (lambda (mode-name)
+           (format "*%s*" findcode-command))))
+    (grep findcode-command)))
+
+(defun biv-findcode (findcode-command)
+  "Run a findcode in separate buffer"
+  (interactive
+   (list (read-string
+          (concat "Run findcode in " (root) " as: ")
+          (format "findcode %s" (current-keyword-or-quoted-active-region 'strip-c-apostrophe)))))
+  (biv-findcode-run findcode-command))
+
+(defun current-keyword-or-quoted-active-region (&optional f)
+  (if mark-active (concat "'" (active-region) "'")
+    (let ((string (or (current-word) "")))
+      (if f (funcall f string) string))))
+
+(defun strip-c-apostrophe (s) (replace-regexp-in-string "^C'" "" s))
+

@@ -2,6 +2,7 @@
 (global-set-key (kbd "s-a") 'sa-map)
 (global-set-key (kbd "s-x") 'sa-map)
 (global-set-key (kbd "C-q") 'sa-map)
+(global-set-key (kbd "s-q") 'sa-map)
 
 (global-set-key [(super a) ?a ?h] 'biv-apply-hunk)
 (global-set-key [(super a) ?d ?b] 'biv-insert-db)

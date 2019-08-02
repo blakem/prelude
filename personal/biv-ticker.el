@@ -1,5 +1,7 @@
 (defvar biv-tick-file (concat (getenv "HOME") "/.ticker"))
 (defvar biv-tick-bash-history (concat (getenv "HOME") "/.bash_history"))
+(defvar biv-tick-bash-history-ssman (concat (getenv "HOME")
+                                            "/git/SwiftStack/personal/.bash_history_ssman"))
 (defvar biv-tick-period 60)
 (defvar biv-tick-log-on-start nil)
 (defvar biv-timer nil)
@@ -18,7 +20,9 @@
     (not (equal (recent-keys) biv-last-keys)))
 
 (defun biv-tick-recent-bash-activity ()
-  (file-newer-than-file-p biv-tick-bash-history biv-tick-file))
+  (or
+   (file-newer-than-file-p biv-tick-bash-history biv-tick-file)
+   (file-newer-than-file-p biv-tick-bash-history-ssman biv-tick-file)))
 
 (defun biv-teardown-timer ()
   (when biv-timer

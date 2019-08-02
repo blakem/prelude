@@ -21,7 +21,8 @@
 (global-set-key (kbd "s-g") 'goto-line)
 (global-set-key (kbd "s-b") 'ace-window)
 (global-set-key (kbd "C-j") 'helm-mini)
-(global-set-key (kbd "<C-s-268632083>") 'biv-findcode)
+(global-set-key (kbd "<C-s-268632083>") 'biv-findcode) ;; C-s-s
+(global-set-key (kbd "<C-s-268632070>") 'biv-findcode) ;; C-s-f
 (global-set-key (kbd "<C-s-left>") 'previous-buffer)
 (global-set-key (kbd "<C-s-right>") 'next-buffer)
 (global-set-key (quote [f10]) 'biv-toggle-pounds)

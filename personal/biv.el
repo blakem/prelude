@@ -307,14 +307,15 @@ downcased, no preceding underscore.
   "Run a findcode command non-interactive"
   (let ((compilation-buffer-name-function
          (lambda (mode-name)
-           (format "*%s*" findcode-command))))
+           (format "*%s*" findcode-command)))
+        (default-directory (root "/")))
     (grep findcode-command)))
 
 (defun biv-findcode (findcode-command)
   "Run a findcode in separate buffer"
   (interactive
    (list (read-string
-          (concat "Run findcode in " (root) " as: ")
+          (concat "Run findcode in " (abbreviate-file-name (root "/")) " as: ")
           (format "findcode %s" (current-keyword-or-quoted-active-region 'strip-c-apostrophe)))))
   (biv-findcode-run findcode-command))
 

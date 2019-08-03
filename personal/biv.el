@@ -22,13 +22,38 @@
 
 (defun biv-git-full-diff ()
   (interactive)
-  (vc-root-diff 'nil)
+  (save-buffer)
+  (let ((default-directory (root "/")))
+    (vc-root-diff 'nil))
   (delete-other-windows)
   )
 
 (defun biv-open-wishlist ()
   (interactive)
   (find-file (home "/.elisp/wishlist.el")))
+
+(defun biv-f4 ()
+  (interactive)
+  (find-file
+   (replace-regexp-in-string "/opt/ss/deploy/current/" (root "/")
+                             (biv-file-at-point))
+   ))
+
+(defun biv-file-at-point ()
+  (interactive)
+  (save-excursion
+    (search-backward-regexp "[^[:word:]\/\-\_\.]")
+    (forward-char 1)
+    (let ((beg (point)))
+      (search-forward-regexp "[^[:word:]\/\-\_\.]")
+      (forward-char -1)
+      (let ((file (buffer-substring beg (point))))
+        (if (string-match "line \\([[:digit:]]+\\)"
+                          (current-line-suffix))
+            (concat file ":" (match-string 1 (current-line-suffix)))
+          file)
+        ))
+    ))
 
 (defun biv-open-managepy ()
   (interactive)
@@ -326,3 +351,22 @@ downcased, no preceding underscore.
 
 (defun strip-c-apostrophe (s) (replace-regexp-in-string "^C'" "" s))
 
+(defadvice find-file-noselect (around find-file-noselect-at-line
+                                      (filename &optional nowarn rawfile wildcards)
+                                      activate)
+  "Turn files like file.cpp:14 into file.cpp and going to the 14-th line."
+  (save-match-data
+    (let* ((matched (string-match "^\\(.*\\):\\([0-9]+\\):?$" filename))
+           (line-number (and matched
+                             (match-string 2 filename)
+                             (string-to-number (match-string 2 filename))))
+           (filename (if matched (match-string 1 filename) filename))
+           (buffer-name ad-do-it))
+      (when line-number
+        (with-current-buffer buffer-name
+          (goto-char (point-min))
+          (forward-line (1- line-number))
+          ))
+      ))
+  ;; (recenter)
+  )

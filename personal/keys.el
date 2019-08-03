@@ -34,7 +34,7 @@
 (global-set-key (kbd "C-%") 'goto-match-paren)
 
 (global-set-key (kbd "\C-f") 'projectile-find-file)
-(global-set-key [f4] 'find-file-at-point)
+(global-set-key [f4] 'biv-f4)
 (global-set-key [(super f)] 'projectile-find-file)
 
 (global-set-key [f6] 'next-error-recenter)

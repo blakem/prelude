@@ -9,10 +9,16 @@
 ;;;;;;;;;;;;;; Bash wishlist ;;;;;;;;;;;;;;;
 ;; cbb -> clear; !!
 ;; h1  -> HEAD~1
+;; nodes should get their own bash config
+;;       export HISTFILE=/vagrant/personal/.bash_history_ssnode
 
 ;;;;; DONE ;;;;;
 ;; open wishlist
 ;; C-up     go up 5 lines
 ;; C-down   go down 5 lines
 ;; highlight parens
+
+
+
+
 

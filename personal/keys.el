@@ -3,6 +3,8 @@
 (global-set-key (kbd "s-x") 'sa-map)
 (global-set-key (kbd "C-q") 'sa-map)
 (global-set-key (kbd "s-q") 'sa-map)
+(global-set-key [s-up] 'biv-bounce-up-indentation)
+(global-set-key [s-down] 'biv-bounce-back)
 
 (global-set-key [(super a) ?a ?h] 'biv-apply-hunk)
 (global-set-key [(super a) ?d ?b] 'biv-insert-db)
